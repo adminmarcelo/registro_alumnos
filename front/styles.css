@@ -1,1 +1,242 @@
-        
+/* ===== VARIABLES ===== */
+:root {
+  --bs-body-bg: #121212;
+  --bs-body-color: #e0e0e0;
+  --bs-secondary-bg: #1e1e1e;
+  --bs-secondary-color: #ffffff;
+  --bs-info: #0dcaf0;
+  --bs-primary: #1a73e8;
+  --bs-danger: #dc3545;
+  --highlight-border: #ffc107;
+  --navbar-gradient-start: #1a2a6c;
+  --navbar-gradient-end: #2a5298;
+  --card-bg: #2d2e30;
+}
+
+/* ===== ESTILOS BASE ===== */
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  padding-top: 80px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: linear-gradient(135deg, var(--navbar-gradient-start) 0%, var(--navbar-gradient-end) 100%) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.brand-icon {
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  margin: 0 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--bs-info);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+}
+
+/* ===== TARJETAS ===== */
+.card {
+  border: none;
+  background-color: var(--card-bg);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 173, 181, 0.2);
+}
+
+.card-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.border-primary {
+  border-left: 4px solid var(--bs-primary) !important;
+}
+
+/* ===== BOTÓN MÁS OPCIONES ===== */
+.btn-outline-primary {
+  border-width: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-primary:hover {
+  color: white !important;
+  background-color: var(--bs-primary);
+}
+
+.btn-outline-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+}
+
+.btn-outline-primary:hover::after {
+  transform: scale(1);
+}
+
+/* ===== FORMULARIOS ===== */
+.form-control, .form-select {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--bs-info);
+  box-shadow: 0 0 0 0.2rem rgba(13, 202, 240, 0.25);
+}
+
+input[readonly] {
+  background-color: #2a2a2a !important;
+  color: #b0b0b0 !important;
+  cursor: not-allowed;
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--bs-info);
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.btn-info {
+  background-color: var(--bs-info);
+  border-color: var(--bs-info);
+  color: #000;
+}
+
+.btn-danger {
+  background-color: var(--bs-danger);
+  border-color: var(--bs-danger);
+}
+
+/* ===== RESULTADOS ===== */
+.result-card {
+  border: 1px solid #444;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #2a2a2a;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== MODAL ===== */
+.modal-content {
+  background-color: var(--bs-secondary-bg);
+  border: 1px solid #444;
+}
+
+.modal-header {
+  border-bottom: 1px solid #333;
+}
+
+.modal-footer {
+  border-top: 1px solid #333;
+}
+
+/* ===== TRANSICIONES ===== */
+.collapse {
+  transition: all 0.4s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .card-body .row > div {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mejoras para la tabla de carreras */
+.table-responsive {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #212529;
+  z-index: 10;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(13, 110, 253, 0.2) !important;
+}
+
+a.nav-link,
+button.btn,
+.card {
+  transition: all 0.3s ease-in-out; /* Transición suave de 0.3 segundos */
+}
+
+button.btn:hover {
+  transform: translateY(-2px); /* Ligero levantamiento al pasar el ratón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sutil sombra al pasar el ratón */
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudentPro - Categorías de Carreras</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+  <!-- Navbar Premium -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span class="brand-icon">🎓</span>
+        <span>StudentPro</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">
+              <i class="fas fa-home me-2"></i>Inicio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#register">
+              <i class="fas fa-user-plus me-2"></i>Registrar
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./careers.html">
+              <i class="fas fa-graduation-cap me-2"></i>Carreras
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./categories.html">
+              <i class="fas fa-graduation-cap me-2"></i>Categorías
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="container py-5 mt-5">
+    <h1 class="text-center mb-4 text-primary">
+      <i class="fas fa-list me-2"></i>Gestión de Categorías de Carreras
+    </h1>
+
+    <!-- Sección: Crear Categoría -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8">
+        <div class="card shadow-lg border-primary">
+          <div class="card-header bg-primary text-white">
+            <h2 class="h5 mb-0"><i class="fas fa-plus me-2"></i>Crear nueva categoría</h2>
+          </div>
+          <div class="card-body">
+            <form id="category-form">
+              <div class="mb-3">
+                <label for="category-name" class="form-label">Nombre de la categoría</label>
+                <input type="text" class="form-control" id="category-name" placeholder="Ej: Ingeniería" required>
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="bi bi-check-circle me-1"></i>Guardar Categoría
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Sección: Listado de Categorías -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-lg border-primary">
+            <div class="card-header bg-primary text-white">
+              <h2 class="h5 mb-0"><i class="fas fa-folder-open me-2"></i>Categorías registradas</h2>
+            </div>
+            <div class="card-body">
+              <ul class="list-group" id="category-list">
+                <!-- Aquí se insertarán dinámicamente las categorías -->
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Lógica de categorías (se cargará desde app.js) -->
+  <script src="app.js"></script>
+</body>
+</html>

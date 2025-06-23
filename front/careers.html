@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Carreras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body class="bg-dark text-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <span class="brand-icon">🎓</span>
+      <span>StudentPro</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="./index.html">
+            <i class="bi bi-house-door me-2"></i>Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./index.html">
+            <i class="bi bi-plus-circle me-2"></i>Registrar
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./careers.html">
+            <i class="bi bi-mortarboard me-2"></i>Carreras
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="./categories.html">
+              <i class="fas fa-list me-2"></i>Categorías
+            </a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <main class="container py-5 mt-5">
+    <h1 class="text-center mb-4 text-primary">
+      <i class="fas fa-users me-2"></i>Gestión de Carreras
+    </h1>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Registrar Carrera -->
+      <div class="col-md-6">
+        <div class="card shadow-lg border-primary">
+          <div class="card-header bg-primary text-white">
+            <h2 class="h5 mb-0"><i class="fas fa-user-plus me-2"></i>Registrar Carrera</h2>
+          </div>
+          <div class="card-body">
+            <input type="text" id="careerName" class="form-control mb-2" placeholder="Nombre de la carrera" />
+            <select id="careerCategory" class="form-select mb-2">
+              <option value="">Seleccionar categoría</option>
+            </select>
+            <input type="text" id="careerDuration" class="form-control mb-2" placeholder="Duración (Ej. 4 años)" />
+            <input type="text" id="careerCode" class="form-control mb-3" placeholder="N° de legajo/código" />
+            <button onclick="registerCareer()" class="btn btn-info w-100">Registrar</button>
+            <div id="registerCareerResult" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buscar Carrera (ID, nombre o tipo) -->
+      <div class="col-md-6">
+        <div class="card shadow-lg border-primary">
+          <div class="card-header bg-info text-dark">
+            <h2 class="h5 mb-0"><i class="bi bi-search me-2"></i>Buscar Carrera</h2>
+          </div>
+          <div class="card-body">
+            <input type="text" id="searchCareerInput" class="form-control mb-3" placeholder="Buscar por ID, nombre o tipo" />
+            <button onclick="searchCareer()" class="btn btn-outline-info w-100">Buscar</button>
+            <div id="getCareerResult" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eliminar Carrera -->
+      <div class="col-md-6">
+        <div class="card shadow-lg border-primary">
+          <div class="card-header bg-danger text-white">
+            <h2 class="h5 mb-0"><i class="bi bi-trash me-2"></i>Eliminar Carrera</h2>
+          </div>
+          <div class="card-body">
+            <input type="text" id="deleteCareerId" class="form-control mb-3" placeholder="ID o nombre de la carrera" />
+            <button onclick="deleteCareer()" class="btn btn-danger w-100">Eliminar</button>
+            <div id="deleteCareerResult" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Listar Carreras -->
+<div class="col-md-6">
+  <div class="card shadow-lg border-primary">
+    <div class="card-header bg-primary text-white">
+      <h2 class="h5 mb-0"><i class="bi bi-list-ul me-2"></i>Listar Carreras</h2>
+    </div>
+    <div class="card-body">
+      <button onclick="getAllCareers()" class="btn btn-outline-info w-100">Mostrar Todas</button>
+      <div id="allCareersResult" class="mt-3"></div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,42 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Student API Client</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudentPro - Gestión de Estudiantes</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link href="styles.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Student API Client</h1>
 
-    <section>
-        <h2>Register Student</h2>
-        <input type="text" id="registerName" placeholder="Name">
-        <input type="text" id="registerCareer" placeholder="Career">
-        <button onclick="registerStudent()">Register</button>
-        <pre id="registerResult"></pre>
-    </section>
+<body class="bg-dark text-light">
 
-    <section>
-        <h2>Get Student by ID</h2>
-        <input type="number" id="studentId" placeholder="Student ID">
-        <button onclick="getStudentById()">Get Student</button>
-        <pre id="getResult"></pre>
-    </section>
+  <!-- Navbar Premium -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <span class="brand-icon">🎓</span>
+        <span>StudentPro</span>
+      </a>
 
-    <section>
-        <h2>Get Students by Career</h2>
-        <input type="text" id="careerFilter" placeholder="Career">
-        <button onclick="getStudentsByCareer()">Get Students</button>
-        <pre id="careerResult"></pre>
-    </section>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <section>
-        <h2>Delete Student</h2>
-        <input type="number" id="deleteId" placeholder="Student ID">
-        <button onclick="deleteStudent()">Delete Student</button>
-        <pre id="deleteResult"></pre>
-    </section>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="fas fa-home me-2"></i> Inicio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#register">
+              <i class="fas fa-user-plus me-2"></i> Registrar
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./careers.html">
+              <i class="fas fa-graduation-cap me-2"></i> Carreras
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./categories.html">
+              <i class="fas fa-list me-2"></i>Categorías
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <script src="app.js"></script>
+  <!-- Contenido principal -->
+  <main class="container py-5 mt-4">
+    <h1 class="text-center mb-4 text-primary"><i class="fas fa-users me-2"></i>Gestión de Estudiantes</h1>
+
+    <!-- Sección Principal de Registro -->
+    <div id="register" class="row justify-content-center mb-4">
+      <div class="col-lg-8">
+        <div class="card shadow-lg border-primary">
+          <div class="card-header bg-primary text-white">
+            <h2 class="h5 mb-0"><i class="fas fa-user-plus me-2"></i>Registro de Estudiantes</h2>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="registerName" class="form-label">Nombre Completo</label>
+                <input type="text" id="registerName" class="form-control" placeholder="Nombre completo">
+              </div>
+
+              <div class="col-md-6">
+                <label for="registerDni" class="form-label">DNI</label>
+                <input type="text" id="registerDni" class="form-control" placeholder="Ingrese DNI">
+              </div>
+
+              <div class="col-md-6">
+                <label for="registerAge" class="form-label">Edad</label>
+                <input type="number" id="registerAge" class="form-control" placeholder="Ingrese edad" min="0">
+              </div>
+              <div class="col-md-6">
+                <label for="registerCareer" class="form-label">Carrera</label>
+                <select id="registerCareer" class="form-select">
+                  <option value="" disabled selected>Seleccione Carrera</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="careerTypeDisplay" class="form-label">Tipo de Carrera</label>
+                <input type="text" id="careerTypeDisplay" class="form-control" readonly>
+              </div>
+              <div class="col-md-6">
+                <label for="careerDurationDisplay" class="form-label">Duración</label>
+                <input type="text" id="careerDurationDisplay" class="form-control" readonly>
+              </div>
+              <div class="col-md-6">
+                <label for="careerRegistryDisplay" class="form-label">Número de Legajo</label>
+                <input type="text" id="careerRegistryDisplay" class="form-control" readonly>
+              </div>
+            </div>
+            <button onclick="registerStudent()" class="btn btn-success w-100 mt-3 py-2">
+              <i class="fas fa-save me-2"></i>Registrar Estudiante
+            </button>
+            <div id="registerResult" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de Más Opciones -->
+    <div class="text-center mb-3">
+      <button class="btn btn-outline-primary btn-lg" type="button" data-bs-toggle="collapse"
+        data-bs-target="#secondaryActions">
+        <i class="fas fa-chevron-down me-2"></i>Más Opciones
+      </button>
+    </div>
+
+    <!-- Sección Secundaria Colapsable -->
+    <div class="row justify-content-center collapse" id="secondaryActions">
+      <div class="col-lg-8">
+        <div class="row g-3">
+          <!-- Buscar por ID -->
+          <!-- Buscar Estudiante -->
+          <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-header bg-info text-dark">
+                <h3 class="h6 mb-0"><i class="fas fa-search me-2"></i>Buscar Estudiante</h3>
+              </div>
+              <div class="card-body">
+                <!-- Buscar por ID -->
+                <div class="mb-3">
+                  <label for="studentId" class="form-label">Por ID</label>
+                  <input type="number" id="studentId" class="form-control mb-2">
+                  <button onclick="getStudentById()" class="btn btn-info w-100 mb-3">
+                    <i class="fas fa-search me-1"></i> Buscar por ID
+                  </button>
+                </div>
+
+                <!-- Buscar por Nombre -->
+                <div class="mb-3">
+                  <label for="studentName" class="form-label">Por Nombre</label>
+                  <input type="text" id="studentName" class="form-control mb-2">
+                  <button onclick="getStudentByName()" class="btn btn-info w-100 mb-3">
+                    <i class="fas fa-search me-1"></i> Buscar por Nombre
+                  </button>
+                </div>
+
+                <!-- Buscar por Carrera -->
+                <div class="mb-3">
+                  <!--label for="careerFilter" class="form-label">Por Carrera</label-->
+                  <label for="registerCareerSearch" class="form-label">Carrera</label>
+                  <select id="registerCareerSearch" class="form-select">
+                    <option value="" disabled selected>Seleccione Carrera</option>
+                  </select>
+                  
+                  <button onclick="getStudentsByCareer()" class="btn btn-info w-100">
+                    <i class="fas fa-search me-1"></i> Buscar por Carrera
+                  </button>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Eliminar -->
+          <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-header bg-danger text-white">
+                <h3 class="h6 mb-0"><i class="fas fa-trash-alt me-2"></i>Eliminar Estudiante</h3>
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <label for="deleteId" class="form-label">ID del Estudiante</label>
+                  <input type="number" id="deleteId" class="form-control mb-2">
+                  <button onclick="deleteStudent()" class="btn btn-danger w-100">
+                    <i class="fas fa-trash me-1"></i> Eliminar
+                  </button>
+                </div>
+                <div id="deleteResult"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header">
+            <h5 class="modal-title text-success" id="successModalLabel">Registro exitoso</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body" id="successModalBody"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón flotante -->
+    <button type="button" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4"
+      style="width: 60px; height: 60px;" data-bs-toggle="modal" data-bs-target="#contactModal"
+      aria-label="Abrir formulario de consulta">
+      <!-- Icono, podés usar Font Awesome o Bootstrap Icons -->
+      <i class="bi bi-envelope-fill" style="font-size: 1.5rem;"></i>
+    </button>
+    <!-- Modal de consulta -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactModalLabel">¿Tenés una duda?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Aquí va el formulario de consultas -->
+            <form id="contactForm">
+              <div class="mb-3">
+                <label for="userName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="userName" placeholder="Tu nombre (opcional)" />
+              </div>
+              <div class="mb-3">
+                <label for="userEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="userEmail" placeholder="tu@ejemplo.com" required />
+              </div>
+              <div class="mb-3">
+                <label for="userMessage" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="userMessage" rows="3" placeholder="Escribí tu consulta aquí..."
+                  required></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="submit" form="contactForm" class="btn btn-primary">
+              Enviar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span id="getAllCareers">
+      <div id="getResult"></div>
+    </span>
+  </main>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
+
 </html>
