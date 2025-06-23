@@ -7,7 +7,7 @@ const headers = {
     "Authorization": `Bearer ${API_KEY}`
 };
 
-// Funciones de servicio que retornan Promesas
+//  cambio Funciones de servicio que retornan Promesas
 async function registerStudentService(name, career) {
     const response = await fetch(API_URL, {
         method: "POST",
