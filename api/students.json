@@ -1,1 +1,135 @@
-[]
+[
+  {
+    "id": 3,
+    "name": "skaksak",
+    "career": "Ingeniería de Software"
+  },
+  {
+    "id": 4,
+    "name": "ia",
+    "career": "Ciencias de la Computación"
+  },
+  {
+    "id": 5,
+    "name": "dihuen",
+    "career": "sisiis"
+  },
+  {
+    "id": 6,
+    "name": "juan",
+    "career": "Ciencias de la Computación"
+  },
+  {
+    "id": 7,
+    "name": "lalalsla",
+    "career": "Ingeniería de Software"
+  },
+  {
+    "id": 8,
+    "name": "enzo",
+    "career": "Ciencia de Datos"
+  },
+  {
+    "id": 9,
+    "name": "pepe",
+    "career": "Ciencias de la Computación"
+  },
+  {
+    "id": 10,
+    "name": "julian",
+    "career": "Ciencias de la Computación"
+  },
+  {
+    "id": 11,
+    "name": "ia",
+    "career": "Ingeniería en Sistemas"
+  },
+  {
+    "id": 12,
+    "name": "monica",
+    "dni": "223322",
+    "career": "nuevo",
+    "tipo": "Ciencias de datos",
+    "duracion": "4"
+  },
+  {
+    "id": 13,
+    "name": "monica1",
+    "dni": "3232323",
+    "career": "nuevo",
+    "tipo": "Ciencias de datos",
+    "duracion": "4"
+  },
+  {
+    "id": 14,
+    "name": "pibes",
+    "dni": "543432",
+    "career": "nuevooo",
+    "tipo": "Carrera test",
+    "duracion": "4"
+  },
+  {
+    "id": 15,
+    "name": "fabian",
+    "dni": "344344",
+    "career": "nuevo",
+    "tipo": "Ciencias de datos",
+    "duracion": "4"
+  },
+  {
+    "id": 16,
+    "name": "juan",
+    "dni": "36868938",
+    "career": "Enfermeria",
+    "tipo": "Ciencias de la salud.",
+    "duracion": "4"
+  },
+  {
+    "id": 17,
+    "name": "marcelo",
+    "dni": "3245235",
+    "career": "ciencia de datos e IA",
+    "tipo": "Ciencias informaticas",
+    "duracion": "3"
+  },
+  {
+    "id": 19,
+    "name": "marcelo1",
+    "dni": "34445567",
+    "career": "ciencia de datos e IA",
+    "tipo": "Ciencias informaticas",
+    "duracion": "3"
+  },
+  {
+    "id": 20,
+    "name": "marcelo1",
+    "dni": "23333444",
+    "career": "Enfermeria",
+    "tipo": "Ciencias de la salud.",
+    "duracion": "4"
+  },
+  {
+    "id": 21,
+    "name": "marcelo1",
+    "dni": "34444555",
+    "career": "ciencia de datos e IA",
+    "tipo": "Ciencias informaticas",
+    "duracion": "3"
+  },
+  {
+    "id": 22,
+    "name": "marcelo1",
+    "dni": "34444555",
+    "career": "ciencia de datos e IA",
+    "tipo": "Ciencias informaticas",
+    "duracion": "3"
+  },
+  {
+    "id": 23,
+    "name": "marcelo1",
+    "dni": "33444555",
+    "career": "Enfermeria",
+    "tipo": "Ciencias de la salud.",
+    "duracion": "4"
+  }
+]

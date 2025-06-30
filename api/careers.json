@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1748384124357,
+    "name": "Ciencia de datos"
+  },
+  {
+    "id": 1748307744014,
+    "name": "Carrera test"
+  },
+  {
+    "id": 1748307744015,
+    "name": "Tecnicatura"
+  },
+  {
+    "id": 1748307744016,
+    "name": "nuevo",
+    "category": "Ciencias de datos",
+    "duration": "4",
+    "registryNumber": "23323"
+  },
+  {
+    "id": 1748307744018,
+    "name": "nuevooo",
+    "category": "Carrera test",
+    "duration": "4",
+    "registryNumber": "123412"
+  },
+  {
+    "id": 1748307744019,
+    "name": "ciencia de datos e IA",
+    "category": "Ciencias informaticas",
+    "duration": "3",
+    "registryNumber": "2323704"
+  },
+  {
+    "id": 1748307744020,
+    "name": "Enfermeria",
+    "category": "Ciencias de la salud.",
+    "duration": "4",
+    "registryNumber": "23434"
+  }
+]
